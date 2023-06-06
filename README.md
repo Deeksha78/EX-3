@@ -31,12 +31,12 @@ st=0
 i=0
 while True:
  while(i<len(l)):
- st+=s
- c.send(str(l[i:st]).encode())
- ack=c.recv(1024).decode()
- if ack:
- print(ack)
- i+=s
+     st+=s
+     c.send(str(l[i:st]).encode())
+     ack=c.recv(1024).decode()
+     if ack:
+        print(ack)
+        i+=s
  ```
  
 SERVER:
@@ -44,7 +44,6 @@ SERVER:
 import socket
 s=socket.socket()
 s.connect(('localhost',8000))
-REG NO:
 while True:
  print(s.recv(1024).decode())
  s.send("acknowledgement recived from the server".encode())
